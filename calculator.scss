@@ -1,0 +1,143 @@
+//Layout Colors (changeable)
+@import url('https://fonts.googleapis.com/css?family=Monda:400,700');
+
+$one: #398897;
+$two: #3eb8c5;
+$three: #f1f1f1;
+$four: #111;
+$five: #0c91a4;
+$white: #fff;
+$six: #5e8a8b;
+$seven: #8cd480;
+$shadow-nav: inset 0 0 8px rgba(0,0,0,0.5);
+$shadow: none;
+$background: #e6e6e6;
+$font1: "Oswald";
+$font2: "Monda", sans-serif;
+$pattern: #ddd;
+$skill-container: #f5f5f5;
+$skill-hole: #ddd;
+
+%shadow {
+  -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.3), 0 1px 3px rgba(0,0,0,.3);
+          box-shadow: 0 4px 6px rgba(50,50,93,.3), 0 1px 3px rgba(0,0,0,.3);
+}
+
+%x-center {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+%xy-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+$calc-border: 1px solid #929397;
+@mixin lgradient($color1, $color2) {
+  background: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2));
+  background: linear-gradient(to bottom, $color1, $color2)
+}
+
+.calculator {
+  padding: 0px!important;
+  margin-top: 5%;
+  background: $one;
+  width: 242px !important;
+  @extend %x-center;
+  border: {
+    right: $calc-border;
+    left: $calc-border;
+  }
+  font-family: "Segoe UI";
+  font-weight: 400;
+  @extend %shadow;
+
+}
+.calculator-display {
+  width: 100%;
+  line-height: 60px;
+  background: #202020;
+  color: white;
+  text-align: right;
+  font-size: 44px;
+  padding-right: 10px;
+  -webkit-box-shadow: inset 0px 0px 1px 2px rgba(255,255,255,0.3);
+          box-shadow: inset 0px 0px 1px 2px rgba(255,255,255,0.3);
+  border: {
+    right: $calc-border;
+    left: $calc-border;
+  }
+}
+.calculator-key {
+  font-weight: 400;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  color: #444;
+  background: #d6d7db;
+  border: {
+    bottom: $calc-border;
+    right: $calc-border;
+    top: none;
+    left: none;
+  }
+  font-size: 24px;
+  &:active {
+    -webkit-box-shadow: inset 0px 0px 80px 0px rgba(0,0,0,0.25);
+            box-shadow: inset 0px 0px 80px 0px rgba(0,0,0,0.25);
+    outline: 0!important;
+  }
+  outline: 0!important;
+}
+.function-key {
+  background: #bbb;
+}
+.operator-key {
+  background: #f88a11;
+  color: white;
+  border-right: none;
+}
+#key-0 {
+  width: 120px;
+  text-align: left;
+  padding-left: 22px;
+}
+
+
+
+$cl3: $seven;
+$cl4: adjust-hue($seven, -5);
+$cl5: lighten($cl4, 6);
+$cl2: adjust-hue($cl3, 15);
+$cl1: darken($cl2, 6);
+$cl0: darken($cl1, 6);
+
+#key-divide {
+  @include lgradient($cl5,$cl4)
+}
+#key-multiply {
+  @include lgradient($cl4,$cl3)
+}
+#key-subtract {
+  @include lgradient($cl3,$cl2)
+}
+#key-add {
+  @include lgradient($cl2, $cl1)
+}
+#key-equals {
+  @include lgradient($cl1, $cl0)
+}
+
+.auto-scaling-text {
+  padding: 0 30px;
+  position: absolute;
+  right: 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
